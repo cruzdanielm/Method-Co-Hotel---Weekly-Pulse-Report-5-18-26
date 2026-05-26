@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Method Co · Weekly Portfolio Snapshot · May 19, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E1F40; --navy-deep:#081530; --navy-soft:#1B2F55;
+    --cream:#ECEFF7; --softcream:#F2F4FB;
+    --sand:#5B7FA8; --sand-deep:#3A5E85;
+    --ink:#1A1A1A; --ink-soft:#4A4A4A; --muted:#8A8E9B;
+    --line:#DCE0EC;
+    --good:#5A8F6B; --bad:#B4533C;
+    --pill-good:#E7F1EA; --pill-warn:#F4EBD8; --pill-bad:#F9E4DE;
+    --serif:"Cormorant Garamond","Garamond","Times New Roman",serif;
+    --sans:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;background:#F7F8FC;color:var(--ink);
+    font-family:var(--sans);font-weight:400;line-height:1.55;
+    -webkit-font-smoothing:antialiased;}
+  .hero,.sectionband{scroll-margin-top:64px;}
+  .topnav{position:sticky;top:0;z-index:50;background:var(--navy);color:var(--cream);
+    border-bottom:2px solid var(--sand);box-shadow:0 1px 3px rgba(8,21,48,.18);}
+  .topnav-inner{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;
+    align-items:center;gap:18px;flex-wrap:wrap;}
+  .topnav .brand{font-family:var(--serif);font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);flex-shrink:0;}
+  .topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2px;flex:1;}
+  .topnav a{display:inline-block;color:rgba(236,239,247,.86);text-decoration:none;
+    padding:6px 10px;font-size:11.5px;letter-spacing:.04em;border-radius:2px;
+    transition:background .15s ease,color .15s ease;font-weight:500;}
+  .topnav a:hover{background:rgba(91,127,168,.22);color:var(--cream);}
+  .topnav a.top-link{color:var(--sand);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:11px;}
+  .backtotop-float{position:fixed;right:20px;bottom:20px;z-index:60;
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);
+    text-decoration:none;box-shadow:0 4px 14px rgba(8,21,48,.30);
+    font-size:16px;font-weight:700;}
+  .backtotop-float::before{content:"↑";}
+  a{color:var(--sand-deep);}
+  .report{max-width:1180px;margin:0 auto;background:var(--cream);box-shadow:0 1px 2px rgba(8,21,48,.05),0 14px 44px rgba(8,21,48,.10);}
+  .hero{background:var(--navy);color:var(--cream);padding:72px 64px 64px;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:54px;background:var(--navy-deep);}
+  .hero .sidebar-label{position:absolute;left:16px;top:50%;transform:translateY(-50%) rotate(180deg);
+    writing-mode:vertical-rl;
+    font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--sand);font-weight:600;}
+  .hero-inner{padding-left:50px;}
+  .hero .meta{position:absolute;right:64px;top:64px;color:rgba(236,239,247,.65);font-size:11px;text-align:right;letter-spacing:.16em;text-transform:uppercase;font-weight:500;line-height:1.7;}
+  .hero .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sand);font-weight:600;}
+  .hero h1{font-family:var(--serif);font-size:62px;font-weight:300;margin:18px 0 8px;letter-spacing:-.015em;line-height:1.02;color:var(--cream);}
+  .hero h1 .em{font-style:italic;font-weight:400;color:var(--sand);}
+  .hero .sub{font-family:var(--serif);color:rgba(236,239,247,.84);font-size:20px;font-weight:300;font-style:italic;max-width:780px;line-height:1.4;}
+  .hero .rule{width:64px;height:1px;background:var(--sand);margin:28px 0 22px;}
+  .hero .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .hero .chip{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);
+    border:1px solid rgba(91,127,168,.65);padding:7px 14px;font-weight:500;}
+  .hero .stamp{position:absolute;right:64px;bottom:64px;text-align:right;color:rgba(236,239,247,.55);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;}
+  .hero .stamp .lg{font-family:var(--serif);font-size:20px;color:var(--sand);font-weight:400;letter-spacing:.04em;display:block;margin-bottom:4px;text-transform:none;font-style:italic;}
+  .hero .as-of{display:inline-block;background:rgba(91,127,168,.18);border:1px solid var(--sand);color:var(--sand);padding:8px 16px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-top:18px;}
+  .hero .archive-dropdown{display:inline-block;margin-top:18px;margin-left:10px;position:relative;vertical-align:top;}
+  .hero .archive-dropdown summary{list-style:none;cursor:pointer;display:inline-block;background:rgba(91,127,168,.18);border:1px solid var(--sand);color:var(--sand);padding:8px 16px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-family:var(--sans);user-select:none;transition:background-color .15s ease;}
+  .hero .archive-dropdown summary::-webkit-details-marker{display:none;}
+  .hero .archive-dropdown summary::marker{content:'';}
+  .hero .archive-dropdown summary:hover{background-color:rgba(91,127,168,.30);}
+  .hero .archive-dropdown[open] summary{background-color:rgba(91,127,168,.30);border-color:var(--cream);color:var(--cream);}
+  .hero .archive-list{position:absolute;top:calc(100% + 4px);left:0;margin:0;padding:6px 0;list-style:none;background:var(--navy);border:1px solid var(--sand);min-width:260px;z-index:10;box-shadow:0 8px 20px rgba(8,21,48,.45);}
+  .hero .archive-list li{margin:0;}
+  .hero .archive-list a{display:block;padding:9px 18px;color:rgba(236,239,247,.92);text-decoration:none;font-size:11px;letter-spacing:.04em;font-weight:500;font-family:var(--sans);transition:background .12s ease,color .12s ease;}
+  .hero .archive-list a:hover{background:rgba(91,127,168,.30);color:var(--cream);}
+  .hero .archive-list a.current{color:var(--sand);font-weight:700;border-left:2px solid var(--sand);padding-left:16px;}
+  .hero .archive-list a.current:hover{color:var(--cream);}
+  .toc{padding:48px 64px 16px;background:var(--cream);border-bottom:1px solid var(--line);}
+  .toc .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sand-deep);font-weight:600;margin-bottom:6px;}
+  .toc h2{font-family:var(--serif);font-size:36px;font-weight:300;color:var(--navy-deep);margin:0 0 8px;letter-spacing:-.005em;line-height:1.1;}
+  .toc .sub{color:var(--muted);font-size:13px;margin-bottom:26px;font-style:italic;}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;padding-bottom:26px;}
+  .toc-item{display:flex;align-items:flex-start;gap:16px;padding:14px 16px;border:1px solid var(--line);border-radius:2px;text-decoration:none;color:var(--ink);background:#fff;transition:transform .15s ease,border-color .15s ease;}
+  .toc-item:hover{border-color:var(--sand);transform:translateX(2px);}
+  .toc-item .num{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--sand);min-width:34px;line-height:1;padding-top:2px;}
+  .toc-item .name{font-size:14px;font-weight:600;color:var(--navy-deep);line-height:1.3;}
+  .toc-item .desc{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45;}
+  .backtocontents-wrap{text-align:center;padding:18px 56px 8px;background:var(--cream);}
+  .backtocontents{display:inline-flex;align-items:center;gap:6px;font-size:11px;
+    color:var(--navy);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:600;padding:7px 16px;border:1px solid var(--line);border-radius:2px;background:#fff;transition:background .15s ease,color .15s ease;}
+  .backtocontents:hover{background:var(--navy);color:var(--cream);}
+  .backtocontents::before{content:"↑";margin-right:2px;}
+  section.part{padding:52px 64px;border-bottom:1px solid var(--line);background:var(--cream);}
+  section.part:last-of-type{border-bottom:none;}
+  .kicker{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand-deep);font-weight:600;margin-bottom:8px;}
+  h2.ph{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--navy-deep);margin:0 0 8px;letter-spacing:-.01em;line-height:1.15;}
+  h2.ph .em{font-style:italic;color:var(--sand-deep);}
+  .plede{color:var(--ink-soft);font-size:14px;max-width:880px;margin-bottom:26px;line-height:1.65;}
+  em.brand{font-style:italic;color:var(--sand-deep);font-weight:500;}
+  .tldr{background:var(--softcream);border-left:3px solid var(--sand);padding:18px 22px;margin:22px 0 0;}
+  .tldr .tag{font-size:10.5px;letter-spacing:.22em;color:var(--sand-deep);font-weight:600;text-transform:uppercase;}
+  .tldr p{margin:6px 0 0;color:var(--ink);font-size:14px;line-height:1.65;}
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 12px;}
+  .kpi{background:#fff;border:1px solid var(--line);padding:22px 22px 18px;text-align:left;border-top:2px solid var(--sand);}
+  .kpi .lbl{font-size:10.5px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
+  .kpi .val{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--sand-deep);line-height:1;margin:14px 0 6px;letter-spacing:-.01em;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1;}
+  .kpi .delta{font-size:12px;font-weight:600;color:var(--good);}
+  .kpi .delta.dn{color:var(--bad);}
+  .kpi .delta.neu{color:var(--muted);}
+  .kpi .sub{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5;}
+  .sectionband{background:var(--navy);color:var(--cream);padding:42px 64px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden;}
+  .sectionband::before{content:"";position:absolute;left:0;top:0;bottom:0;width:54px;background:var(--navy-deep);}
+  .sectionband .sidebar-num{position:absolute;left:14px;top:50%;transform:translateY(-50%) rotate(-90deg);
+    font-family:var(--serif);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--sand);font-weight:500;}
+  .sectionband .sb-inner{padding-left:54px;}
+  .sectionband .lbl{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--sand);font-weight:600;}
+  .sectionband h2{font-family:var(--serif);margin:8px 0 0;font-size:34px;font-weight:300;letter-spacing:-.005em;color:var(--cream);}
+  .sectionband .right{color:rgba(236,239,247,.65);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:right;line-height:1.7;}
+  table.data{width:100%;border-collapse:collapse;font-size:13px;}
+  table.data thead th{color:var(--navy-deep);border-bottom:1.5px solid var(--navy);font-weight:600;padding:10px 8px;text-align:right;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--sans);}
+  table.data thead th:first-child{text-align:left;}
+  table.data tbody td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;}
+  table.data tbody td:first-child{text-align:left;font-weight:500;color:var(--navy-deep);}
+  table.data tbody tr:last-child td{border-bottom:none;}
+  table.data .pos{color:var(--good);font-weight:600;}
+  table.data .neg{color:var(--bad);font-weight:600;}
+  table.data .neu{color:var(--muted);}
+  table.data tr.us td{background:linear-gradient(90deg, var(--softcream) 0%, rgba(91,127,168,.10) 100%);color:var(--sand-deep);font-weight:600;}
+  table.data tr.total td{background:var(--softcream);border-top:2px solid var(--navy);font-weight:600;color:var(--navy-deep);}
+  .card{background:#fff;border:1px solid var(--line);padding:24px 26px;}
+  .card.tightpad{padding:18px 22px;}
+  .card h3{margin:0 0 6px;font-size:10.5px;color:var(--sand-deep);font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+  .card h2{font-family:var(--serif);margin:0 0 16px;font-size:22px;color:var(--navy-deep);font-weight:400;line-height:1.3;letter-spacing:-.005em;}
+  .card.dark{background:var(--navy);color:var(--cream);border-color:var(--navy);}
+  .card.dark h2{color:var(--cream);}
+  .card.dark h3{color:var(--sand);}
+  .card.dark p, .card.dark li{color:rgba(236,239,247,.92);}
+  .two{display:grid;grid-template-columns:2fr 1fr;gap:24px;}
+  .two.flip{grid-template-columns:1fr 2fr;}
+  .two.half{grid-template-columns:1fr 1fr;gap:20px;}
+  .scorecard-wrap{margin-top:6px;overflow-x:auto;border:1px solid var(--line);background:#fff;}
+  .scorecard{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px;background:#fff;}
+  .scorecard thead th{padding:14px 10px 12px;text-align:center;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-deep);border-bottom:1.5px solid var(--navy);background:#fff;vertical-align:top;line-height:1.3;}
+  .scorecard thead th:first-child{text-align:left;padding-left:20px;}
+  .scorecard thead th:last-child{padding-right:20px;}
+  .scorecard thead th .src{display:block;font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:none;font-style:italic;margin-top:4px;font-family:var(--serif);}
+  .scorecard tbody td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle;background:#fff;}
+  .scorecard tbody td:first-child{text-align:left;padding:14px 20px;font-family:var(--serif);font-size:16px;font-weight:400;font-style:italic;color:var(--navy-deep);white-space:nowrap;}
+  .scorecard tbody td:last-child{padding-right:20px;}
+  .scorecard tbody tr:hover td:first-child{background:var(--softcream);}
+  .scorecard .cell{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 6px;font-weight:600;font-size:13px;color:var(--ink);min-height:54px;border-radius:2px;}
+  .scorecard .cell .v{display:block;font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);line-height:1.1;}
+  .scorecard .cell .u{display:block;font-size:9px;font-weight:500;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;margin-top:4px;}
+  .scorecard .cell.ok{background:var(--pill-good);}
+  .scorecard .cell.warn{background:var(--pill-warn);}
+  .scorecard .cell.bad{background:var(--pill-bad);}
+  .scorecard .cell.na{background:var(--softcream);color:var(--muted);}
+  .scorecard .cell.na .v{color:var(--muted);}
+  .scorecard .status{display:inline-block;padding:6px 12px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;}
+  .scorecard .status.healthy{background:var(--pill-good);color:#2F6B41;}
+  .scorecard .status.watch{background:var(--pill-warn);color:#8C661B;}
+  .scorecard .status.critical{background:var(--pill-bad);color:#8C2A1B;}
+  .scorecard .chg{display:inline-block;padding:5px 10px;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;line-height:1.2;white-space:nowrap;}
+  .scorecard .chg.up{background:var(--pill-good);color:#2F6B41;}
+  .scorecard .chg.dn{background:var(--pill-bad);color:#8C2A1B;}
+  .scorecard .chg.flat{color:var(--muted);font-weight:600;}
+  .scorecard .chg-rsn{display:block;margin-top:5px;font-family:var(--serif);font-size:11px;font-style:italic;color:var(--ink-soft);font-weight:400;letter-spacing:.01em;text-transform:none;line-height:1.3;}
+  .scorecard tbody tr:last-child td{border-bottom:none;}
+  .scorecard-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px;}
+  .scsum{background:#fff;border:1px solid var(--line);padding:18px 20px;border-top:2px solid var(--sand);}
+  .scsum .lbl{font-size:10.5px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
+  .scsum .val{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--sand-deep);line-height:1;margin:10px 0 4px;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1;}
+  .scsum .sub{font-size:11px;color:var(--ink-soft);}
+  .fcchart{background:#fff;border:1px solid var(--line);padding:24px 26px;margin-top:8px;}
+  .fcchart-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:16px;}
+  .fcchart-title{font-family:var(--serif);font-size:22px;color:var(--navy-deep);font-weight:400;margin:0;}
+  .fcchart-title .em{font-style:italic;color:var(--sand-deep);}
+  .fcchart-toggle{display:flex;gap:6px;}
+  .fcchip{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--sand);background:#fff;color:var(--sand-deep);cursor:pointer;transition:background .15s,color .15s;border-radius:2px;}
+  .fcchip:hover{background:var(--softcream);}
+  .fcchip.active{background:var(--navy);color:var(--cream);border-color:var(--navy);}
+  .fcrow{display:grid;grid-template-columns:170px 1fr;gap:14px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);}
+  .fcrow:last-of-type{border-bottom:none;}
+  .fcrow .nm{font-family:var(--serif);font-size:14px;color:var(--navy-deep);font-weight:500;font-style:italic;}
+  .fcrow .bars{display:flex;flex-direction:column;gap:4px;}
+  .fcbar{display:grid;grid-template-columns:60px 1fr 100px 110px;gap:10px;align-items:center;font-size:11px;}
+  .fcbar .lab{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .fctrack{height:14px;background:var(--softcream);border:1px solid var(--line);position:relative;}
+  .fcfill{height:100%;background:var(--sand);transition:width .35s ease;}
+  .fcfill.actual{background:var(--navy);}
+  .fcfill.budget{background:#CCD3E2;}
+  .fcval{font-family:var(--serif);font-size:13px;color:var(--ink);font-weight:500;text-align:right;}
+  .fcvar{font-size:10.5px;text-align:right;font-weight:600;}
+  .fcvar.pos{color:var(--good);}
+  .fcvar.neg{color:var(--bad);}
+  .fcvar.neu{color:var(--muted);}
+  .fcsummary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;padding:14px;background:var(--cream);border:1px solid var(--line);}
+  .fcsumcell .lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .fcsumcell .val{font-family:var(--serif);font-size:22px;color:var(--sand-deep);font-weight:400;line-height:1.1;margin-top:4px;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1;}
+  .src-footer{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:11px;color:var(--muted);font-style:italic;line-height:1.55;}
+  .src-footer strong{color:var(--ink-soft);font-weight:600;font-style:normal;}
+  footer{padding:28px 64px;background:var(--navy-deep);color:rgba(236,239,247,.7);font-size:11px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+  footer .signature{font-family:var(--serif);font-style:italic;color:var(--sand);font-size:13px;letter-spacing:.04em;}
+  .deal-leaders{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 6px;}
+  .dealrow{display:grid;grid-template-columns:32px 180px 1fr 140px;gap:14px;padding:12px 18px;background:#fff;border:1px solid var(--line);align-items:center;}
+  .dealrow .rk{font-family:var(--serif);font-size:24px;color:var(--sand);font-weight:300;text-align:center;line-height:1;}
+  .dealrow .nm{font-size:14px;font-weight:600;color:var(--navy-deep);}
+  .dealrow .pr{font-size:12.5px;font-weight:400;color:var(--ink-soft);}
+  .dealrow .vl{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--sand-deep);text-align:right;letter-spacing:-.005em;}
+  @media print{
+    @page{margin:0.5in;}
+    html,body{background:#fff;scroll-behavior:auto;}
+    .topnav,.backtotop-float{display:none !important;}
+    .report{box-shadow:none;max-width:100%;margin:0;}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important;}
+    .hero,.sectionband,.toc,section.part,[id^="section-"],#contents,#top{scroll-margin-top:0 !important;}
+    .hero,.sectionband,.toc{page-break-inside:avoid;break-inside:avoid;}
+    .kpi-row,.toc-grid,.toc-item,.kpi,.scorecard-summary,.scsum,.fcsummary,.fcrow,.dealrow{break-inside:avoid;page-break-inside:avoid;}
+    .scorecard{page-break-inside:auto;}
+    .scorecard thead{display:table-header-group;position:static;}
+    .scorecard tbody tr{page-break-inside:avoid;}
+    section.part{break-inside:auto;}
+    a{color:var(--sand-deep) !important;text-decoration:none !important;}
+  }
+  @media(max-width:820px){
+    .kpi-row,.scorecard-summary,.fcsummary{grid-template-columns:1fr 1fr;}
+    .two,.two.flip,.two.half{grid-template-columns:1fr;}
+    .hero,section.part,footer,.toc,.sectionband{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:42px;}
+    .hero .meta{position:static;text-align:left;margin-top:14px;}
+    .fcrow{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Section navigation">
+  <div class="topnav-inner">
+    <div class="brand">Method Co · Weekly Snapshot</div>
+    <ul>
+      <li><a href="#top" class="top-link">Top</a></li>
+      <li><a href="#contents" class="top-link">Contents</a></li>
+      <li><a href="#section-summary">Summary</a></li>
+      <li><a href="#section-scorecard">Scorecard</a></li>
+      <li><a href="#section-1">1 · Guest Sat</a></li>
+      <li><a href="#section-2">2 · Revenue</a></li>
+      <li><a href="#section-3">3 · STR</a></li>
+      <li><a href="#section-4">4 · Sales</a></li>
+    </ul>
+  </div>
+</nav>
+<a href="#top" class="backtotop-float" aria-label="Back to top"></a>
+
+<div class="report" id="top">
+
+  <div class="hero">
+    <div class="sidebar-label">Weekly Snapshot · Method Co</div>
+    <div class="hero-inner">
+      <div class="meta">Internal Distribution<br>Corporate &amp; GMs<br>Method Co Portfolio</div>
+      <div class="eyebrow">Weekly Portfolio Snapshot · Hotel Rooms</div>
+      <h1>Method Co<br><span class="em">Weekly Pulse</span></h1>
+      <div class="sub">Eleven hotels. May closing strong. June pacing in line.</div>
+      <div class="rule"></div>
+      <div class="as-of">As of · May 19, 2026</div>
+      <details class="archive-dropdown">
+        <summary>▾ Prior weeks</summary>
+        <ul class="archive-list">
+          <li><a href="Method Co Weekly Pulse_05252026.html">As of May 26, 2026</a></li>
+          <li><a href="Method Co Weekly Pulse_05182026.html" class="current">As of May 19, 2026 (current)</a></li>
+          <li><a href="Method Co Weekly Pulse_05112026.html">As of May 12, 2026</a></li>
+        </ul>
+      </details>
+      <div class="chips">
+        <span class="chip">11 Hotels</span>
+        <span class="chip">Lighthouse · STR · Revinate · HubSpot</span>
+        <span class="chip">May Late-Cycle · June Forward</span>
+      </div>
+    </div>
+    <div class="stamp"><span class="lg">— Method Co —</span>11 hotels in scope</div>
+  </div>
+
+  <div class="toc" id="contents">
+    <div class="kicker">Contents</div>
+    <h2>Six sections · click to jump</h2>
+    <div class="sub">Click any section. The report exports cleanly to PDF — Chrome / Safari / Edge: <strong>File → Print → Save as PDF</strong>.</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#section-summary"><div class="num">EX</div><div><div class="name">Executive Summary</div><div class="desc">May close-in, June forward, the watch list this week</div></div></a>
+      <a class="toc-item" href="#section-scorecard"><div class="num">SC</div><div><div class="name">Balanced Scorecard</div><div class="desc">Five metrics. One row per property. Color tells you where to look.</div></div></a>
+      <a class="toc-item" href="#section-1"><div class="num">01</div><div><div class="name">Guest Satisfaction</div><div class="desc">Revinate Weekly · review rating, Survey NPS, WoW deltas</div></div></a>
+      <a class="toc-item" href="#section-2"><div class="num">02</div><div><div class="name">Revenue · Lighthouse</div><div class="desc">May OTB vs Forecast vs Budget · June pace</div></div></a>
+      <a class="toc-item" href="#section-3"><div class="num">03</div><div><div class="name">STR · Weekly Indices</div><div class="desc">MPI, ARI, RGI vs comp set + rank · week ending May 16</div></div></a>
+      <a class="toc-item" href="#section-4"><div class="num">04</div><div><div class="name">Sales · Deal Leaders</div><div class="desc">Top closers + activity counts · property attribution</div></div></a>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="sectionband" id="section-summary">
+    <div class="sidebar-num">Section · EX</div>
+    <div class="sb-inner">
+      <div class="lbl">Executive Summary</div>
+      <h2>May closing. June in view. Numbers first.</h2>
+    </div>
+    <div class="right">As of May 19, 2026<br>Data through May 18 close</div>
+  </div>
+
+  <section class="part">
+    <div class="kicker">Executive Summary · As of May 19, 2026</div>
+    <h2 class="ph">Portfolio May forecast <span class="em">$4.82M on rooms</span> · +4.1% vs budget.</h2>
+    <p class="plede">May forecast across the eleven-hotel portfolio is <strong>$4,823,136</strong>, <strong>+4.1% vs budget of $4,631,435</strong>. OTB through May 18 close sits at <strong>$4,450,248</strong> — that's 92% of forecast already on the books with eleven days of May still to pickup. The 7-day pickup (vs May 11 close) is <strong>+$420,878</strong>; May MTD pickup (vs May 1) now stands at <strong>+$1,128,143</strong>. May standouts on the forecast line: <em class="brand">The Quoin Hotel</em> at <strong>$266,963 (+28% vs budget)</strong>, <em class="brand">ROOST White House</em> at $313,875 (+17%), <em class="brand">ROOST East Market</em> at $360,169 (+10%), <em class="brand">The Pinch Charleston</em> at $465,582 (+8%), <em class="brand">The Nickel Hotel</em> at $652,898 (+7%), and <em class="brand">ROOST Tampa</em> at $745,170 (+7%). Watch the May forecast gap on <em class="brand">ROOST Rainey</em> ($261,898, −22% vs $338K budget) and <em class="brand">ROOST Cleveland</em> ($277,685, −8%). June pace lines up clean: portfolio June forecast $4.35M is <strong>+3.0% vs budget</strong>, with <em class="brand">ROOST East Market</em> +13%, <em class="brand">The Nickel</em> +12%, and <em class="brand">The Quoin</em> +6% leading; <em class="brand">ROOST Baltimore</em> (−7%) and <em class="brand">ROOST Cleveland</em> (−2%) the only soft spots, and <em class="brand">Rainey</em>'s June forecast holds at +2% vs budget.</p>
+    <div class="tldr">
+      <div class="tag">This week's watch list</div>
+      <p>No <em class="brand">Critical</em> properties this week. Six <em class="brand">Watch</em>: <em class="brand">The Nickel</em> (RGI 79.2), <em class="brand">ROOST Detroit</em> (RGI gave back the prior week's gain — 109.5 to 86.6), <em class="brand">ROOST Cleveland</em> (May FC −8% bud, RGI 92.5), <em class="brand">ROOST Baltimore</em> (NPS 20.0 — biggest single-week drop in the portfolio), <em class="brand">ROOST Rainey</em> (May FC −22%, RGI 65.6), <em class="brand">ROOST White House</em> (RGI deepened from 72.8 to 55.7). Five <em class="brand">Healthy</em>: <em class="brand">Pinch</em>, <em class="brand">Quoin</em>, <em class="brand">Midtown</em>, <em class="brand">East Market</em>, <em class="brand">Tampa</em>. Top focus area: <em class="brand">RevPAR Index</em> — four properties red on RGI (<em class="brand">Nickel</em>, <em class="brand">Detroit</em>, <em class="brand">Rainey</em>, <em class="brand">White House</em>). On the sales side, <em class="brand">Sam Gringeri</em> vaulted to the leaderboard's top spot at <strong>$342,720</strong> closed this month across <em class="brand">Midtown</em> and <em class="brand">East Market</em> — more than double the next nearest rep.</p>
+    </div>
+  </section>
+
+  <div class="backtocontents-wrap"><a class="backtocontents" href="#contents">Back to Contents</a></div>
+
+  <!-- BALANCED SCORECARD -->
+  <div class="sectionband" id="section-scorecard">
+    <div class="sidebar-num">Section · SC</div>
+    <div class="sb-inner">
+      <div class="lbl">Balanced Scorecard</div>
+      <h2>One row per property. Color tells you where to look.</h2>
+    </div>
+    <div class="right">Five metrics · color-coded<br>Healthy / Watch / Critical</div>
+  </div>
+
+  <section class="part">
+    <div class="kicker">Balanced Scorecard · As of May 19, 2026</div>
+    <h2 class="ph">Five metrics. <span class="em">One row per property.</span> Color tells you where to look.</h2>
+    <p class="plede">A focused replacement for the auto-flag list. Each property's row carries five colored cells — the value visible on a tinted background. Read across, and the answer to "where do I focus this week" is in the column with the most red. The Rev vs Budget column reads May Forecast vs May Budget (current cycle's end-of-month expectation). The Occ vs STLY column reads May Forecast vs same-time-prior-year. Status pill collapses the row: zero red is Healthy, one to two red is Watch, three or more red is Critical. The rightmost <strong>WoW Change</strong> column flags any property whose status moved since last week — green up-arrow for an improvement, coral down-arrow for a worsening, with a brief reason underneath.</p>
+
+    <div class="scorecard-wrap">
+      <table class="scorecard">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>May FC vs Budget<span class="src">Lighthouse · May</span></th>
+            <th>RevPAR Index<span class="src">STR · wk ending May 16</span></th>
+            <th>Guest NPS<span class="src">Revinate · Survey</span></th>
+            <th>May FC vs STLY<span class="src">Lighthouse · May</span></th>
+            <th>Status</th>
+            <th>WoW Change<span class="src">vs last week</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>The Nickel Hotel</td><td class="metric-cell"><span class="cell ok"><span class="v">+7%</span><span class="u">vs $612K bud</span></span></td><td class="metric-cell"><span class="cell bad"><span class="v">79.2</span><span class="u">6 of 7</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">71.4</span><span class="u">7 surveys</span></span></td><td class="metric-cell"><span class="cell na"><span class="v">NA</span><span class="u">ramp-up</span></span></td><td><span class="status watch">Watch</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI deeper red (85.2 → 79.2)</span></td></tr>
+          <tr><td>The Pinch Charleston</td><td class="metric-cell"><span class="cell ok"><span class="v">+8%</span><span class="u">vs $432K bud</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">150.6</span><span class="u">2 of 5</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">100.0</span><span class="u">9 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+15%</span><span class="u">vs STLY rev</span></span></td><td><span class="status healthy">Healthy</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI strengthened (139.4 → 150.6)</span></td></tr>
+          <tr><td>The Quoin Hotel</td><td class="metric-cell"><span class="cell ok"><span class="v">+28%</span><span class="u">vs $209K bud</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">192.9</span><span class="u">1 of 6</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">100.0</span><span class="u">1 survey</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+44%</span><span class="u">vs STLY rev</span></span></td><td><span class="status healthy">Healthy</span></td><td><span class="chg up">↑ Improved</span><span class="chg-rsn">Watch → Healthy · NPS 14.3 → 100</span></td></tr>
+          <tr><td>ROOST Detroit</td><td class="metric-cell"><span class="cell warn"><span class="v">+5%</span><span class="u">vs $822K bud</span></span></td><td class="metric-cell"><span class="cell bad"><span class="v">86.6</span><span class="u">6 of 7</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">73.7</span><span class="u">19 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+19%</span><span class="u">vs STLY rev</span></span></td><td><span class="status watch">Watch</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI volatile (81.7 → 109.5 → 86.6)</span></td></tr>
+          <tr><td>ROOST Cleveland</td><td class="metric-cell"><span class="cell bad"><span class="v">−8%</span><span class="u">vs $301K bud</span></span></td><td class="metric-cell"><span class="cell warn"><span class="v">92.5</span><span class="u">6 of 6</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">75.0</span><span class="u">3 surveys</span></span></td><td class="metric-cell"><span class="cell warn"><span class="v">+1%</span><span class="u">vs STLY rev</span></span></td><td><span class="status watch">Watch</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI rank 3/6 → 6/6</span></td></tr>
+          <tr><td>ROOST Baltimore</td><td class="metric-cell"><span class="cell warn"><span class="v">−4%</span><span class="u">vs $446K bud</span></span></td><td class="metric-cell"><span class="cell warn"><span class="v">101.9</span><span class="u">2 of 6</span></span></td><td class="metric-cell"><span class="cell bad"><span class="v">20.0</span><span class="u">5 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+10%</span><span class="u">vs STLY rev</span></span></td><td><span class="status watch">Watch</span></td><td><span class="chg dn">↓ Worsened</span><span class="chg-rsn">Healthy → Watch · NPS 63.6 → 20</span></td></tr>
+          <tr><td>ROOST Midtown</td><td class="metric-cell"><span class="cell ok"><span class="v">+7%</span><span class="u">vs $177K bud</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">139.8</span><span class="u">3 of 6</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">83.3</span><span class="u">5 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+23%</span><span class="u">vs STLY rev</span></span></td><td><span class="status healthy">Healthy</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI rose (126.4 → 139.8)</span></td></tr>
+          <tr><td>ROOST East Market</td><td class="metric-cell"><span class="cell ok"><span class="v">+10%</span><span class="u">vs $326K bud</span></span></td><td class="metric-cell"><span class="cell warn"><span class="v">105.1</span><span class="u">3 of 6</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">100.0</span><span class="u">7 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+27%</span><span class="u">vs STLY rev</span></span></td><td><span class="status healthy">Healthy</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI bounced (140.5 → 97.8 → 105.1)</span></td></tr>
+          <tr><td>ROOST Rainey</td><td class="metric-cell"><span class="cell bad"><span class="v">−22%</span><span class="u">vs $338K bud</span></span></td><td class="metric-cell"><span class="cell bad"><span class="v">65.6</span><span class="u">6 of 6</span></span></td><td class="metric-cell"><span class="cell warn"><span class="v">60.0</span><span class="u">9 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+41%</span><span class="u">vs STLY rev</span></span></td><td><span class="status watch">Watch</span></td><td><span class="chg up">↑ Improved</span><span class="chg-rsn">Critical → Watch · NPS 37.5 → 60</span></td></tr>
+          <tr><td>ROOST Tampa</td><td class="metric-cell"><span class="cell ok"><span class="v">+7%</span><span class="u">vs $700K bud</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">152.9</span><span class="u">1 of 7</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">72.7</span><span class="u">11 surveys</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">+22%</span><span class="u">vs STLY rev</span></span></td><td><span class="status healthy">Healthy</span></td><td><span class="chg flat">— No change</span><span class="chg-rsn">RGI strengthened (132.6 → 152.9)</span></td></tr>
+          <tr><td>ROOST White House</td><td class="metric-cell"><span class="cell ok"><span class="v">+17%</span><span class="u">vs $268K bud</span></span></td><td class="metric-cell"><span class="cell bad"><span class="v">55.7</span><span class="u">6 of 6</span></span></td><td class="metric-cell"><span class="cell ok"><span class="v">87.5</span><span class="u">2 surveys</span></span></td><td class="metric-cell"><span class="cell na"><span class="v">NA</span><span class="u">Net STLY</span></span></td><td><span class="status watch">Watch</span></td><td><span class="chg dn">↓ Worsened</span><span class="chg-rsn">Healthy → Watch · RGI 103.8 → 55.7</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scorecard-summary">
+      <div class="scsum"><div class="lbl">Healthy</div><div class="val">5</div><div class="sub">Pinch Charleston, Quoin, Midtown, East Market, Tampa</div></div>
+      <div class="scsum"><div class="lbl">Watch</div><div class="val">6</div><div class="sub">Nickel, Detroit, Cleveland, Baltimore, Rainey, White House</div></div>
+      <div class="scsum"><div class="lbl">Critical</div><div class="val">0</div><div class="sub">No properties at 3+ red this week</div></div>
+      <div class="scsum"><div class="lbl">Top focus area</div><div class="val">RevPAR Index</div><div class="sub">4 properties red on RGI · most red of any column</div></div>
+    </div>
+
+    <div class="src-footer">
+      <strong>Thresholds:</strong> May FC vs Budget — green ≥ +5%, yellow −5% to +5%, red &lt; −5% (Lighthouse May).
+      RevPAR Index (RGI) — green ≥ 110, yellow 90 – 109.9, red &lt; 90 (STR week ending May 16).
+      Guest NPS — green ≥ 70, yellow 50 – 69, red &lt; 50 (Revinate Survey).
+      May FC vs STLY — green ≥ +3, yellow ±3, red &lt; −3 (Lighthouse May Forecast Revenue % vs same-time-prior-year).
+      <br><strong>Status pill:</strong> 0 red = Healthy, 1–2 red = Watch, 3+ red = Critical (NA cells do not count toward red).
+      <br><strong>NA cells:</strong> <em class="brand">Nickel</em> May FC vs STLY = NA (property in ramp-up; STLY baseline $46K not comparable). <em class="brand">White House</em> Lighthouse reports "Net STLY" (different basis) without an LY Actuals column for May.
+      <br><strong>Sources fed in:</strong> Lighthouse Daily Glance emails dated May 19, 2026 (data through May 18 close); STR Weekly STAR week ending May 16, 2026; Revinate Weekly Property Reports for May 10 – 16, 2026.
+      <br><strong>Note:</strong> Otelier Flash Report omitted — coverage gap (4 of 11 properties absent) and as-of-4/28 staleness make the file unfit for cross-portfolio comparison.
+    </div>
+  </section>
+
+  <div class="backtocontents-wrap"><a class="backtocontents" href="#contents">Back to Contents</a></div>
+
+  <!-- SECTION 1 — GUEST SATISFACTION -->
+  <div class="sectionband" id="section-1">
+    <div class="sidebar-num">Section · 01</div>
+    <div class="sb-inner">
+      <div class="lbl">Section 1</div>
+      <h2>Guest Satisfaction · Weekly</h2>
+    </div>
+    <div class="right">Source: Revinate GS Reports<br>Period: May 10 – 16, 2026</div>
+  </div>
+
+  <section class="part">
+    <div class="kicker">Guest Satisfaction · May 10 – 16, 2026</div>
+    <h2 class="ph">Per-property review rating &amp; <span class="em">Survey NPS</span>.</h2>
+    <p class="plede">Pulled from Revinate Guest Satisfaction Weekly Property Reports. "WoW Δ" reflects the value in Revinate's "Since Last Week" column. Rating YTD and NPS YTD pulled from Revinate's Review Analysis "Year to Date" row and Survey Responses YTD breakdown (NPS computed as Promoters − Detractors as a share of total responses). <em class="brand">The Pinch Charleston</em> received zero reviews again — rating fields blank, NPS reads 100.0 from surveys. The biggest single-week swing this cycle: <em class="brand">ROOST Baltimore</em> Survey NPS dropped from 63.6 to 20.0 — but its YTD NPS still reads 71.7, so the week is the outlier rather than a trend.</p>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="lbl">Portfolio Avg Rating · YTD</div><div class="val">4.69</div><div class="delta neu">simple avg across 11</div><div class="sub">This week's vol-weighted avg: 4.63 on 63 reviews</div></div>
+      <div class="kpi"><div class="lbl">Portfolio Avg NPS · YTD</div><div class="val">76.9</div><div class="delta neu">simple avg across 11</div><div class="sub">This week's avg: 76.7 · benchmark 50 strong, 70 elite</div></div>
+      <div class="kpi"><div class="lbl">Total Reviews · This Week</div><div class="val">63</div><div class="delta dn">vs 80 last week (−21%)</div><div class="sub">Sum across 11 properties</div></div>
+      <div class="kpi"><div class="lbl">NPS &lt; 50 · Critical</div><div class="val">1</div><div class="delta dn">Baltimore (20.0) · new this week</div><div class="sub">Scorecard red threshold</div></div>
+    </div>
+
+    <div class="card tightpad" style="margin-top:24px;">
+      <table class="data">
+        <thead><tr><th>Property</th><th>Rating</th><th>WoW Δ</th><th>Reviews</th><th>Rating YTD</th><th>Survey NPS</th><th>WoW Δ</th><th>NPS YTD</th></tr></thead>
+        <tbody>
+          <tr><td>The Nickel Hotel</td><td>4.60</td><td><span class="neg">-0.06</span></td><td>5</td><td>4.80</td><td><span class="pos">71.4</span></td><td><span class="neg">-0.21</span></td><td><span class="pos">82.1</span></td></tr>
+          <tr><td>The Pinch Charleston</td><td>—</td><td><span class="neu">—</span></td><td>0</td><td>4.80</td><td><span class="pos">100.0</span></td><td><span class="neu">+0.00</span></td><td><span class="pos">75.2</span></td></tr>
+          <tr><td>The Quoin Hotel</td><td>5.00</td><td><span class="pos">+0.05</span></td><td>1</td><td>4.75</td><td><span class="pos">100.0</span></td><td><span class="pos">+6.00</span></td><td><span class="neu">66.1</span></td></tr>
+          <tr><td>ROOST Detroit</td><td>4.64</td><td><span class="neg">-0.06</span></td><td>12</td><td>4.75</td><td><span class="pos">73.7</span></td><td><span class="pos">+0.23</span></td><td><span class="pos">70.5</span></td></tr>
+          <tr><td>ROOST Cleveland</td><td>4.83</td><td><span class="pos">+0.01</span></td><td>9</td><td>4.59</td><td><span class="pos">75.0</span></td><td><span class="neg">-0.06</span></td><td><span class="pos">71.4</span></td></tr>
+          <tr><td>ROOST Baltimore</td><td>4.75</td><td><span class="neg">-0.05</span></td><td>8</td><td>4.63</td><td><span class="neg">20.0</span></td><td><span class="neg">-0.69</span></td><td><span class="pos">71.7</span></td></tr>
+          <tr><td>ROOST Midtown</td><td>5.00</td><td><span class="neu">+0.00</span></td><td>1</td><td>4.85</td><td><span class="pos">83.3</span></td><td><span class="neg">-0.17</span></td><td><span class="pos">88.5</span></td></tr>
+          <tr><td>ROOST East Market</td><td>4.79</td><td><span class="neg">-0.01</span></td><td>7</td><td>4.70</td><td><span class="pos">100.0</span></td><td><span class="neu">+0.00</span></td><td><span class="pos">100.0</span></td></tr>
+          <tr><td>ROOST Rainey</td><td>4.39</td><td><span class="pos">+0.04</span></td><td>9</td><td>4.59</td><td><span class="neu">60.0</span></td><td><span class="pos">+0.60</span></td><td><span class="neu">61.9</span></td></tr>
+          <tr><td>ROOST Tampa</td><td>4.44</td><td><span class="pos">+0.02</span></td><td>9</td><td>4.61</td><td><span class="pos">72.7</span></td><td><span class="neg">-0.27</span></td><td><span class="pos">91.3</span></td></tr>
+          <tr><td>ROOST White House</td><td>4.25</td><td><span class="neg">-0.01</span></td><td>2</td><td>4.63</td><td><span class="pos">87.5</span></td><td><span class="pos">+0.17</span></td><td><span class="neu">66.7</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="src-footer">
+      <strong>Source:</strong> Revinate Weekly Property Reports — 11 .xls files, Period: May 10 – May 16, 2026.
+      <strong>Notes:</strong> WoW Δ values reflect Revinate's "Since Last Week" column. <em class="brand">The Pinch Charleston</em> received zero reviews this week — rating fields blank; NPS reads from 9 surveys. <em class="brand">ROOST Baltimore</em> Survey NPS dropped from 63.6 to 20.0 — biggest single-week swing in the portfolio and the only red NPS cell. <em class="brand">The Quoin Hotel</em> NPS recovered from 14.3 to 100.0 (1 survey base); <em class="brand">ROOST Rainey</em> NPS climbed from 37.5 to 60.0. Review volume down 21% WoW (80 → 63) — typical mid-month softness across the comp set.
+    </div>
+  </section>
+
+  <div class="backtocontents-wrap"><a class="backtocontents" href="#contents">Back to Contents</a></div>
+
+  <!-- SECTION 2 — REVENUE -->
+  <div class="sectionband" id="section-2">
+    <div class="sidebar-num">Section · 02</div>
+    <div class="sb-inner">
+      <div class="lbl">Section 2</div>
+      <h2>Revenue · Lighthouse · May Pace &amp; June Forward</h2>
+    </div>
+    <div class="right">Source: Lighthouse · BI Analytics<br>Pulled May 19, 2026 (data through May 18 close)</div>
+  </div>
+
+  <section class="part">
+    <div class="kicker">May 2026 · Late-Cycle Pace + June Forward</div>
+    <h2 class="ph">May OTB vs Forecast vs Budget · <span class="em">June pace</span>.</h2>
+    <p class="plede">Pulled live from each property's Lighthouse "Daily Glance" email dated May 19, 2026 (data refreshed through May 18 close). The 2026/2027 On The Books annual table carries each month's OTB total plus exact Budget and Forecast figures; the Monthly Summary section carries May and June Occ/ADR/Rev forecasts. The "Method Co · Daily Glance" portfolio rollup includes wider scope — <em class="brand">ROOST Rittenhouse</em>, <em class="brand">Kelly Drive</em>, and <em class="brand">Wm. Mulherin's</em> — so the Portfolio Total below sums the eleven property emails ($4,823,136 May forecast) rather than reading the rollup. May Budget per property is read directly from the Lighthouse OTB annual table for accuracy.</p>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="lbl">May · Forecast Revenue</div><div class="val">$4.82M</div><div class="delta neu">11-hotel sum</div><div class="sub">$4,823,136 · May 2026</div></div>
+      <div class="kpi"><div class="lbl">May · FC vs Budget</div><div class="val">+4.1%</div><div class="delta">vs $4.63M budget</div><div class="sub">Sum-of-eleven basis</div></div>
+      <div class="kpi"><div class="lbl">May · OTB through May 18 close</div><div class="val">$4.45M</div><div class="delta neu">7-day pickup +$420,878</div><div class="sub">92% of forecast on the books · 11 days to go</div></div>
+      <div class="kpi"><div class="lbl">June · Forecast Revenue</div><div class="val">$4.35M</div><div class="delta">+3.0% vs $4.22M bud</div><div class="sub">June OTB $2.31M (mid-cycle pace)</div></div>
+    </div>
+
+    <!-- Forecast vs Budget vs OTB chart (May) -->
+    <div class="fcchart" id="fcchart">
+      <div class="fcchart-header">
+        <h3 class="fcchart-title">May 2026 · <span class="em">OTB vs Forecast vs Budget</span></h3>
+        <div class="fcchart-toggle" role="tablist" aria-label="Metric selector">
+          <button type="button" class="fcchip active" data-metric="rev">Revenue</button>
+          <button type="button" class="fcchip" data-metric="occ">Occupancy</button>
+          <button type="button" class="fcchip" data-metric="adr">ADR</button>
+        </div>
+      </div>
+      <div id="fcrows"></div>
+      <div class="fcsummary">
+        <div class="fcsumcell"><div class="lbl">Portfolio May OTB</div><div class="val" id="fcs-actual">$4,450,248</div></div>
+        <div class="fcsumcell"><div class="lbl">Portfolio May Forecast</div><div class="val" id="fcs-fc">$4,823,136</div></div>
+        <div class="fcsumcell"><div class="lbl">Portfolio May Budget</div><div class="val" id="fcs-bud">$4,631,435</div></div>
+      </div>
+    </div>
+
+    <div class="card tightpad" style="margin-top:24px;">
+      <h3>May 2026 · Pickup (Revenue) — 3-Day, 7-Day, Month-to-Date</h3>
+      <p style="margin:6px 0 14px;font-size:11.5px;color:var(--muted);font-style:italic;line-height:1.55;">3-day pickup = May OTB on May 18 minus May OTB on May 15. 7-day = vs May 11. MTD = vs May 1. Built from same-property Daily Glance emails on each date (May 19 / May 16 / May 12 / May 2 morning reports). Late-cycle May snapshot — 11 days of May remain to pickup.</p>
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>May OTB Today</th>
+            <th>3-Day Pickup</th>
+            <th>7-Day Pickup</th>
+            <th>MTD Pickup</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>The Nickel Hotel</td><td>$584,816</td><td><span class="pos">+$19,977</span></td><td><span class="pos">+$58,434</span></td><td><span class="pos">+$159,767</span></td></tr>
+          <tr><td>The Pinch Charleston</td><td>$428,367</td><td><span class="pos">+$10,297</span></td><td><span class="pos">+$18,461</span></td><td><span class="pos">+$81,574</span></td></tr>
+          <tr><td>The Quoin Hotel</td><td>$251,923</td><td><span class="pos">+$2,055</span></td><td><span class="pos">+$23,181</span></td><td><span class="pos">+$61,754</span></td></tr>
+          <tr><td>ROOST Detroit</td><td>$852,855</td><td><span class="pos">+$15,142</span></td><td><span class="pos">+$120,699</span></td><td><span class="pos">+$327,521</span></td></tr>
+          <tr><td>ROOST Cleveland</td><td>$248,095</td><td><span class="pos">+$9,015</span></td><td><span class="pos">+$21,721</span></td><td><span class="pos">+$56,591</span></td></tr>
+          <tr><td>ROOST Baltimore</td><td>$370,249</td><td><span class="pos">+$8,943</span></td><td><span class="pos">+$15,181</span></td><td><span class="pos">+$50,923</span></td></tr>
+          <tr><td>ROOST Midtown</td><td>$179,943</td><td><span class="pos">+$5,651</span></td><td><span class="pos">+$29,361</span></td><td><span class="pos">+$51,161</span></td></tr>
+          <tr><td>ROOST East Market</td><td>$348,502</td><td><span class="pos">+$10,894</span></td><td><span class="pos">+$38,580</span></td><td><span class="pos">+$85,309</span></td></tr>
+          <tr><td>ROOST Rainey</td><td>$205,180</td><td><span class="pos">+$10,918</span></td><td><span class="pos">+$31,325</span></td><td><span class="pos">+$78,704</span></td></tr>
+          <tr><td>ROOST Tampa</td><td>$701,532</td><td><span class="pos">+$20,510</span></td><td><span class="pos">+$39,707</span></td><td><span class="pos">+$137,952</span></td></tr>
+          <tr><td>ROOST White House</td><td>$278,786</td><td><span class="pos">+$7,093</span></td><td><span class="pos">+$24,228</span></td><td><span class="pos">+$36,887</span></td></tr>
+          <tr class="total">
+            <td>Portfolio Total · 11 hotels</td>
+            <td>$4,450,248</td>
+            <td><span class="pos">+$120,495</span></td>
+            <td><span class="pos">+$420,878</span></td>
+            <td><span class="pos">+$1,128,143</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Forecast vs Budget vs OTB chart (June) -->
+    <div class="fcchart" id="fcchart-jun" style="margin-top:18px;">
+      <div class="fcchart-header">
+        <h3 class="fcchart-title">June 2026 · <span class="em">OTB vs Forecast vs Budget</span></h3>
+        <div class="fcchart-toggle" role="tablist" aria-label="Metric selector">
+          <button type="button" class="fcchip active" data-metric="rev">Revenue</button>
+          <button type="button" class="fcchip" data-metric="occ">Occupancy</button>
+          <button type="button" class="fcchip" data-metric="adr">ADR</button>
+        </div>
+      </div>
+      <div id="fcrows-jun"></div>
+      <div class="fcsummary">
+        <div class="fcsumcell"><div class="lbl">Portfolio June OTB</div><div class="val" id="fcs-actual-jun">$2,314,224</div></div>
+        <div class="fcsumcell"><div class="lbl">Portfolio June Forecast</div><div class="val" id="fcs-fc-jun">$4,345,843</div></div>
+        <div class="fcsumcell"><div class="lbl">Portfolio June Budget</div><div class="val" id="fcs-bud-jun">$4,218,823</div></div>
+      </div>
+    </div>
+
+    <div class="card tightpad" style="margin-top:18px;">
+      <h3>June 2026 · Pickup (Revenue) — 3-Day, 7-Day, Month-to-Date</h3>
+      <p style="margin:6px 0 14px;font-size:11.5px;color:var(--muted);font-style:italic;line-height:1.55;">3-day pickup = June OTB on May 18 minus June OTB on May 15. 7-day = vs May 11. MTD = vs May 1 (booking-month pickup into June since the start of May). Built from same-property Daily Glance emails on each date. June is 12 days out from today — pickup pace is what's filling the room nights still on the come.</p>
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>June OTB Today</th>
+            <th>3-Day Pickup</th>
+            <th>7-Day Pickup</th>
+            <th>MTD Pickup</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>The Nickel Hotel</td><td>$224,620</td><td><span class="pos">+$9,669</span></td><td><span class="pos">+$37,180</span></td><td><span class="pos">+$86,151</span></td></tr>
+          <tr><td>The Pinch Charleston</td><td>$210,378</td><td><span class="pos">+$6,001</span></td><td><span class="pos">+$31,948</span></td><td><span class="pos">+$53,006</span></td></tr>
+          <tr><td>The Quoin Hotel</td><td>$155,349</td><td><span class="pos">+$111</span></td><td><span class="pos">+$13,414</span></td><td><span class="pos">+$49,674</span></td></tr>
+          <tr><td>ROOST Detroit</td><td>$391,959</td><td><span class="pos">+$25,344</span></td><td><span class="pos">+$70,675</span></td><td><span class="pos">+$156,937</span></td></tr>
+          <tr><td>ROOST Cleveland</td><td>$176,757</td><td><span class="pos">+$23,294</span></td><td><span class="pos">+$37,933</span></td><td><span class="pos">+$60,667</span></td></tr>
+          <tr><td>ROOST Baltimore</td><td>$237,738</td><td><span class="pos">+$4,326</span></td><td><span class="pos">+$16,391</span></td><td><span class="pos">+$77,964</span></td></tr>
+          <tr><td>ROOST Midtown</td><td>$89,027</td><td><span class="pos">+$12,806</span></td><td><span class="pos">+$39,302</span></td><td><span class="pos">+$48,432</span></td></tr>
+          <tr><td>ROOST East Market</td><td>$255,460</td><td><span class="pos">+$12,714</span></td><td><span class="pos">+$47,529</span></td><td><span class="pos">+$59,993</span></td></tr>
+          <tr><td>ROOST Rainey</td><td>$96,030</td><td><span class="pos">+$16,838</span></td><td><span class="pos">+$23,531</span></td><td><span class="pos">+$37,254</span></td></tr>
+          <tr><td>ROOST Tampa</td><td>$266,085</td><td><span class="pos">+$6,919</span></td><td><span class="pos">+$7,681</span></td><td><span class="pos">+$45,266</span></td></tr>
+          <tr><td>ROOST White House</td><td>$210,821</td><td><span class="pos">+$122</span></td><td><span class="pos">+$30,277</span></td><td><span class="pos">+$46,885</span></td></tr>
+          <tr class="total">
+            <td>Portfolio Total · 11 hotels</td>
+            <td>$2,314,224</td>
+            <td><span class="pos">+$118,144</span></td>
+            <td><span class="pos">+$355,861</span></td>
+            <td><span class="pos">+$722,229</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="src-footer">
+      <strong>Source:</strong> Lighthouse "Daily Glance" emails from <code>BI Analytics</code> (per-property), pulled via Chrome from the Method Co Gmail (u/1) inbox at May 19, 2026 — eleven property emails plus the Method Co rollup, all sent overnight May 18–19.
+      <strong>Method Co Portfolio email:</strong> "We finished the day with 80% occupancy for the portfolio and $175,816 in revenue" (May 18 close) — wider scope including <em class="brand">Rittenhouse</em>, <em class="brand">Kelly Drive</em>, <em class="brand">Wm. Mulherin's</em>. The eleven-property sum is used throughout this section.
+      <strong>Budget basis:</strong> Per-property May and June Budget figures read directly from the Budget column of each Daily Glance's 2026/2027 OTB annual table — more accurate than the derived "% to Budget" approximation used in prior cycles.
+      <strong>Otelier Flash Report:</strong> not used this cycle — Otelier covers seven of eleven properties (<em class="brand">Nickel</em>, <em class="brand">Baltimore</em>, <em class="brand">Rainey</em>, <em class="brand">White House</em> absent) and most-recent file is dated 4/28; unfit for cross-portfolio comparison.
+    </div>
+  </section>
+
+  <div class="backtocontents-wrap"><a class="backtocontents" href="#contents">Back to Contents</a></div>
+
+  <!-- SECTION 3 — STR -->
+  <div class="sectionband" id="section-3">
+    <div class="sidebar-num">Section · 03</div>
+    <div class="sb-inner">
+      <div class="lbl">Section 3</div>
+      <h2>STR · Weekly Indices</h2>
+    </div>
+    <div class="right">Source: STR Weekly STAR<br>Week ending May 16, 2026</div>
+  </div>
+
+  <section class="part">
+    <div class="kicker">STR · Three time horizons · As of May 16, 2026</div>
+    <h2 class="ph">MPI · ARI · RGI vs comp set — <span class="em">Weekly, 28 Days, YTD</span>.</h2>
+    <p class="plede">Indices indexed to 100 = comp set average. Above 100 = outperforming, below 100 = lagging. Scorecard thresholds: green ≥ 110, red &lt; 90. The Weekly RGI column drives the Balanced Scorecard's RevPAR Index column. Use the chips on the right of the table heading to switch between <em>Weekly</em>, <em>R28</em> (28-day rolling, smooths out single-week swings), and <em>YTD</em> (year-to-date through last month-end, sourced from STR's Monthly STAR). Big shifts this cycle on the weekly view: <em class="brand">Tampa</em> strengthened to RGI 152.9 (#1 of 7, ARI 147.8); <em class="brand">Pinch</em> climbed from 139.4 to 150.6; <em class="brand">Midtown</em> rose from 126.4 to 139.8. On the downside, <em class="brand">Detroit</em> gave back the prior week's gains — RGI 109.5 → 86.6, rank 3 of 7 to 6 of 7; <em class="brand">Baltimore</em> slipped from 110.2 to 101.9; <em class="brand">Nickel</em> deepened from 89.7 to 79.2; and <em class="brand">White House</em> fell further from 72.8 to 55.7.</p>
+
+    <div class="card tightpad str-period-card" style="margin-top:6px;">
+      <div class="fcchart-header" style="margin-bottom:8px;">
+        <h3 class="fcchart-title" id="str-period-title">Current Week · <span class="em">May 10 – May 16, 2026</span></h3>
+        <div class="fcchart-toggle str-period-toggle" role="tablist" aria-label="STR period selector">
+          <button type="button" class="fcchip active" data-period="weekly">Weekly</button>
+          <button type="button" class="fcchip" data-period="r28">R28</button>
+          <button type="button" class="fcchip" data-period="ytd">YTD</button>
+        </div>
+      </div>
+      <table class="data" style="margin-top:8px;">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Occ %</th><th>ADR</th><th>RevPAR</th>
+            <th>Occ Idx (MPI)</th><th>ADR Idx (ARI)</th><th>RevPAR Idx (RGI)</th>
+            <th>RevPAR Rank</th>
+          </tr>
+        </thead>
+        <tbody id="str-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="src-footer">
+      <strong>Sources:</strong> Use the chips above the table to toggle between <em>Weekly</em>, <em>R28</em>, and <em>YTD</em>.
+      <strong>Weekly + R28:</strong> 11 STR Weekly STAR .xlsx files (week ending May 16, 2026), inside <code>final-report (2)-c8faa5d2.zip</code>. Weekly indices from sheet 'Glance' col 26 R10/R12/R14/R16/R18/R20 + 'SummaryComb' R8/R30/R52 for ranks. R28 indices from 'Glance' R27/R29/R31/R33/R35/R37 + 'SummaryComb 28Day' R52 for rank.
+      <strong>YTD:</strong> 11 STR Monthly STAR .xlsx files (through April 2026), inside <code>final-report (2)-8be64bd1.zip</code>. YTD indices from 'Glance' R13 cols 7/8/9 (Occ/Comp/MPI), 12/13/14 (ADR/Comp/ARI), 17/18/19 (RevPAR/Comp/RGI). Ranks from 'Segmentation Ranking' Year To Date → 2026 row, col 15 (Total RevPAR).
+      <strong>Comp Sets (selected):</strong> <em class="brand">ROOST Detroit</em> — Element, Aloft, Hampton Inn, Detroit Foundation, Westin Book Cadillac. <em class="brand">The Pinch</em> — The Charleston Place, Emeline, Zero George, Hotel Bennett, The Palmetto. <em class="brand">ROOST White House</em> — comp set sliding negative on ARI (Net rates lower than market this week).
+      <strong>Note:</strong> Big swings on RGI between cycles reflect rate compression in shoulder-season weeks; trend lines smooth over 28-day rolling.
+    </div>
+  </section>
+
+  <div class="backtocontents-wrap"><a class="backtocontents" href="#contents">Back to Contents</a></div>
+
+  <!-- SECTION 4 — SALES -->
+  <div class="sectionband" id="section-4">
+    <div class="sidebar-num">Section · 04</div>
+    <div class="sb-inner">
+      <div class="lbl">Section 4</div>
+      <h2>Sales · Deal Leaders &amp; Activities</h2>
+    </div>
+    <div class="right">Source: Sales Dashboard PDF<br>May 19, 2026 (today)</div>
+  </div>
+
+  <section class="part">
+    <div class="kicker">Sales · Deal Leaders &amp; Activities</div>
+    <h2 class="ph">Top closers by value · activity counts · <span class="em">property attribution</span>.</h2>
+    <p class="plede">Source is the May 19, 2026 HubSpot Sales Dashboard email export. Three reps lead the month at six figures, with <em class="brand">Sam Gringeri</em> taking the top spot at <strong>$342,720</strong> (<em class="brand">ROOST Midtown</em> + <em class="brand">ROOST East Market</em>) — more than double the next nearest rep. <em class="brand">Christopher Allen</em> at <strong>$148,836</strong> (<em class="brand">ROOST Baltimore</em>), <em class="brand">James Manson</em> at $139,191 (<em class="brand">ROOST Tampa</em>), <em class="brand">Elizabeth Smorse</em> at $129,654 (<em class="brand">ROOST White House</em>), <em class="brand">Heather Majerus</em> at $116,250 (<em class="brand">Cleveland</em> + <em class="brand">Detroit</em>), and <em class="brand">Erica Stumm</em> at $104,115 (<em class="brand">Midtown</em> + <em class="brand">East Market</em>) round out the top six.</p>
+
+    <div class="two">
+      <div>
+        <div class="card tightpad">
+          <h3>Top 10 Deal Leaders · Closed $ This Month</h3>
+          <div class="deal-leaders" style="margin-top:8px;">
+            <div class="dealrow"><div class="rk">1</div><div class="nm">Sam Gringeri</div><div class="pr">ROOST Midtown + ROOST East Market</div><div class="vl">$342,720</div></div>
+            <div class="dealrow"><div class="rk">2</div><div class="nm">Christopher Allen</div><div class="pr">ROOST Baltimore</div><div class="vl">$148,836</div></div>
+            <div class="dealrow"><div class="rk">3</div><div class="nm">James Manson</div><div class="pr">ROOST Tampa</div><div class="vl">$139,191</div></div>
+            <div class="dealrow"><div class="rk">4</div><div class="nm">Elizabeth Smorse</div><div class="pr">ROOST White House</div><div class="vl">$129,654</div></div>
+            <div class="dealrow"><div class="rk">5</div><div class="nm">Heather Majerus</div><div class="pr">ROOST Cleveland + ROOST Detroit</div><div class="vl">$116,250</div></div>
+            <div class="dealrow"><div class="rk">6</div><div class="nm">Erica Stumm</div><div class="pr">ROOST Midtown + ROOST East Market</div><div class="vl">$104,115</div></div>
+            <div class="dealrow"><div class="rk">7</div><div class="nm">John Lerchen</div><div class="pr">ROOST Detroit</div><div class="vl">$102,127</div></div>
+            <div class="dealrow"><div class="rk">8</div><div class="nm">Kaori Jones</div><div class="pr">ROOST Tampa</div><div class="vl">$66,340</div></div>
+            <div class="dealrow"><div class="rk">9</div><div class="nm">Nicole DiVincenzo</div><div class="pr">ROOST Cleveland</div><div class="vl">$43,023</div></div>
+            <div class="dealrow"><div class="rk">10</div><div class="nm">Natalie Russomanno</div><div class="pr">The Nickel Hotel</div><div class="vl">$40,701</div></div>
+          </div>
+        </div>
+
+        <div class="card tightpad" style="margin-top:18px;">
+          <h3>Big Deals &gt;$25K · Closed This Month (by rep)</h3>
+          <table class="data" style="margin-top:6px;">
+            <thead><tr><th style="text-align:left;">Property</th><th style="text-align:left;">Rep</th><th>Closed $</th></tr></thead>
+            <tbody>
+              <tr><td style="text-align:left;">ROOST Midtown + East Market</td><td style="text-align:left;">Sam Gringeri</td><td>$342,720</td></tr>
+              <tr><td style="text-align:left;">ROOST Baltimore</td><td style="text-align:left;">Christopher Allen</td><td>$148,836</td></tr>
+              <tr><td style="text-align:left;">ROOST Tampa</td><td style="text-align:left;">James Manson</td><td>$139,191</td></tr>
+              <tr><td style="text-align:left;">ROOST White House</td><td style="text-align:left;">Elizabeth Smorse</td><td>$129,654</td></tr>
+              <tr><td style="text-align:left;">ROOST Cleveland + Detroit</td><td style="text-align:left;">Heather Majerus</td><td>$116,250</td></tr>
+              <tr><td style="text-align:left;">ROOST Midtown + East Market</td><td style="text-align:left;">Erica Stumm</td><td>$104,115</td></tr>
+              <tr><td style="text-align:left;">ROOST Detroit</td><td style="text-align:left;">John Lerchen</td><td>$102,127</td></tr>
+              <tr><td style="text-align:left;">ROOST Tampa</td><td style="text-align:left;">Kaori Jones</td><td>$66,340</td></tr>
+              <tr><td style="text-align:left;">ROOST Cleveland</td><td style="text-align:left;">Nicole DiVincenzo</td><td>$43,023</td></tr>
+              <tr><td style="text-align:left;">The Nickel Hotel</td><td style="text-align:left;">Natalie Russomanno</td><td>$40,701</td></tr>
+              <tr><td style="text-align:left;">ROOST Rainey</td><td style="text-align:left;">Crystal Kadilis</td><td>$28,142</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card tightpad" style="margin-top:18px;">
+          <h3>Deal Amount Avg by Rep · Last Month (April) — Top 5</h3>
+          <table class="data" style="margin-top:6px;">
+            <thead><tr><th>Salesperson</th><th style="text-align:left;">Property</th><th>Avg Deal $</th></tr></thead>
+            <tbody>
+              <tr><td>Natalie Russomanno</td><td style="text-align:left;">The Nickel Hotel</td><td>$11,580</td></tr>
+              <tr><td>John Lerchen</td><td style="text-align:left;">ROOST Detroit</td><td>$10,760</td></tr>
+              <tr><td>Crystal Kadilis</td><td style="text-align:left;">ROOST Rainey</td><td>$7,372</td></tr>
+              <tr><td>Heather Majerus</td><td style="text-align:left;">ROOST Cleveland + ROOST Detroit</td><td>$6,284</td></tr>
+              <tr><td>Sam Gringeri</td><td style="text-align:left;">ROOST Midtown + ROOST East Market</td><td>$5,381</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="card tightpad">
+          <h3>Activity Counts · This Month</h3>
+          <table class="data" style="margin-top:6px;">
+            <thead><tr><th>Rep</th><th>Activities</th></tr></thead>
+            <tbody>
+              <tr><td>Elizabeth Smorse</td><td>170</td></tr>
+              <tr><td>Kaori Jones</td><td>100</td></tr>
+              <tr><td>James Manson</td><td>98</td></tr>
+              <tr><td>Christopher Allen</td><td>75</td></tr>
+              <tr><td>Nicole DiVincenzo</td><td>54</td></tr>
+              <tr><td>Heather Majerus</td><td>24</td></tr>
+              <tr><td>Crystal Kadilis</td><td>9</td></tr>
+              <tr><td>Sam Gringeri</td><td>3</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card tightpad" style="margin-top:18px;">
+          <h3>Closed Revenue by Traffic Source · Last 30 Days</h3>
+          <table class="data" style="margin-top:6px;">
+            <thead><tr><th style="text-align:left;">Source</th><th>Closed $</th></tr></thead>
+            <tbody>
+              <tr><td style="text-align:left;">Offline Sources</td><td>$910,501</td></tr>
+              <tr><td style="text-align:left;">Sales</td><td>$98,906</td></tr>
+              <tr><td style="text-align:left;">Email Marketing</td><td>$84,756</td></tr>
+              <tr><td style="text-align:left;">Paid Search</td><td>$56,186</td></tr>
+              <tr><td style="text-align:left;">HubSpot CRM</td><td>$52,282</td></tr>
+              <tr><td style="text-align:left;">Direct Traffic</td><td>$35,764</td></tr>
+              <tr><td style="text-align:left;">Other Campaigns</td><td>$34,498</td></tr>
+              <tr><td style="text-align:left;">Organic Search</td><td>$25,096</td></tr>
+              <tr><td style="text-align:left;">Referrals</td><td>$10,316</td></tr>
+              <tr><td style="text-align:left;">Integration</td><td>$4,804</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card dark tightpad" style="margin-top:18px;">
+          <h3>Source notes</h3>
+          <p style="font-size:12.5px;line-height:1.55;margin:0 0 8px;"><strong>Sales Dashboard PDF (v2)</strong> dated May 19, 2026 — HubSpot email export with six panels: Deal Leaderboard, Deal Amount Average, Revenue Booked MTD, Traffic Source breakdown, Activities, Forecast Pipeline. Exact bar-label values used throughout.</p>
+          <p style="font-size:12.5px;line-height:1.55;margin:0 0 8px;"><strong>Headline shift:</strong> <em class="brand">Sam Gringeri</em> jumped from $5,381 avg April deal size to a single-month closed total of <strong>$342,720</strong> — a one-off enterprise or block? Worth surfacing to leadership for context on the deal mix.</p>
+          <p style="font-size:12.5px;line-height:1.55;margin:0;"><strong>Attribution carried forward:</strong> <em class="brand">Natalie Russomanno</em> → <em class="brand">The Nickel Hotel</em>; <em class="brand">John Lerchen</em> → <em class="brand">ROOST Detroit</em>; <em class="brand">Sam Gringeri</em> &amp; <em class="brand">Erica Stumm</em> → <em class="brand">ROOST Midtown + East Market</em>; <em class="brand">Heather Majerus</em> covers <em class="brand">Cleveland + Detroit</em> (split not exposed in dashboard); <em class="brand">Elizabeth Smorse</em> → <em class="brand">ROOST White House</em> and is also the activity volume leader at 170 calls/meetings.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="src-footer">
+      <strong>Source:</strong> Sales Dashboard PDF (HubSpot email notification) dated May 19, 2026. Six embedded PNG charts extracted; property attributions carried forward from prior cycles. <em>Recommend</em> requesting a CSV/Excel export from HubSpot for deal-by-deal property splitting (<em class="brand">Heather Majerus</em> $116K still aggregates Cleveland and Detroit; <em class="brand">Sam Gringeri</em>'s $342K closing is not split between Midtown and East Market here).
+    </div>
+  </section>
+
+  <div class="backtocontents-wrap"><a class="backtocontents" href="#contents">Back to Contents</a></div>
+
+  <footer>
+    <span>Method Co · Weekly Portfolio Snapshot</span>
+    <span class="signature">— As of May 19, 2026 —</span>
+    <span>Built from Lighthouse · STR · Revinate · Sales Dashboard</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var mayData = [
+    {nm:"The Nickel Hotel", rev:{a:584816, f:652898, b:612101}, occ:{a:65,f:73,b:69}, adr:{a:578,f:578,b:540}},
+    {nm:"The Pinch Charleston", rev:{a:428367, f:465582, b:432250}, occ:{a:78,f:84,b:79}, adr:{a:705,f:716,b:660}},
+    {nm:"The Quoin Hotel", rev:{a:251923, f:266963, b:209101}, occ:{a:72,f:78,b:62}, adr:{a:473,f:460,b:359}},
+    {nm:"ROOST Detroit", rev:{a:852855, f:860667, b:821816}, occ:{a:68,f:71,b:69}, adr:{a:341,f:332,b:327}},
+    {nm:"ROOST Cleveland", rev:{a:248095, f:277685, b:300985}, occ:{a:62,f:71,b:77}, adr:{a:208,f:204,b:222}},
+    {nm:"ROOST Baltimore", rev:{a:370249, f:429420, b:446190}, occ:{a:77,f:87,b:91}, adr:{a:193,f:197,b:205}},
+    {nm:"ROOST Midtown", rev:{a:179943, f:188809, b:177072}, occ:{a:70,f:74,b:73}, adr:{a:297,f:293,b:271}},
+    {nm:"ROOST East Market", rev:{a:348502, f:360169, b:326229}, occ:{a:84,f:90,b:83}, adr:{a:279,f:264,b:242}},
+    {nm:"ROOST Rainey", rev:{a:205180, f:261898, b:338141}, occ:{a:45,f:54,b:70}, adr:{a:251,f:263,b:342}},
+    {nm:"ROOST Tampa", rev:{a:701532, f:745170, b:699669}, occ:{a:76,f:84,b:79}, adr:{a:308,f:295,b:276}},
+    {nm:"ROOST White House", rev:{a:278786, f:313875, b:267881}, occ:{a:79,f:89,b:76}, adr:{a:256,f:277,b:237}}
+  ];
+  var junData = [
+    {nm:"The Nickel Hotel", rev:{a:224620, f:551395, b:493378}, occ:{a:31,f:74,b:70}, adr:{a:482,f:499,b:472}},
+    {nm:"The Pinch Charleston", rev:{a:210378, f:358940, b:345796}, occ:{a:51,f:87,b:85}, adr:{a:546,f:548,b:538}},
+    {nm:"The Quoin Hotel", rev:{a:155349, f:237067, b:223805}, occ:{a:39,f:74,b:72}, adr:{a:553,f:443,b:430}},
+    {nm:"ROOST Detroit", rev:{a:391959, f:849750, b:841486}, occ:{a:36,f:78,b:78}, adr:{a:307,f:309,b:307}},
+    {nm:"ROOST Cleveland", rev:{a:176757, f:295475, b:301856}, occ:{a:48,f:87,b:88}, adr:{a:196,f:183,b:185}},
+    {nm:"ROOST Baltimore", rev:{a:237738, f:382590, b:411039}, occ:{a:54,f:83,b:86}, adr:{a:182,f:190,b:197}},
+    {nm:"ROOST Midtown", rev:{a:89027, f:178451, b:167790}, occ:{a:38,f:82,b:80}, adr:{a:276,f:259,b:251}},
+    {nm:"ROOST East Market", rev:{a:255460, f:374053, b:331934}, occ:{a:63,f:92,b:87}, adr:{a:282,f:283,b:267}},
+    {nm:"ROOST Rainey", rev:{a:96030, f:276985, b:272810}, occ:{a:27,f:68,b:67}, adr:{a:198,f:231,b:229}},
+    {nm:"ROOST Tampa", rev:{a:266085, f:580160, b:580138}, occ:{a:43,f:89,b:89}, adr:{a:211,f:224,b:224}},
+    {nm:"ROOST White House", rev:{a:210821, f:260977, b:248791}, occ:{a:57,f:76,b:74}, adr:{a:268,f:280,b:273}}
+  ];
+  var fmt = {
+    rev: function(v){return "$"+Math.round(v).toLocaleString();},
+    occ: function(v){return Math.round(v)+"%";},
+    adr: function(v){return "$"+Math.round(v).toLocaleString();}
+  };
+  var fmtVar = {
+    rev: function(d){return (d>=0?"+$":"-$")+Math.abs(Math.round(d)).toLocaleString();},
+    occ: function(d){return (d>=0?"+":"")+Math.round(d)+" pts";},
+    adr: function(d){return (d>=0?"+$":"-$")+Math.abs(Math.round(d)).toLocaleString();}
+  };
+  function pct(a,b){if(!b)return 0;return Math.round(((a-b)/b)*100);}
+
+  function setupChart(opts){
+    var chartEl = document.getElementById(opts.chartId);
+    if(!chartEl) return;
+    var rowsEl = document.getElementById(opts.rowsId);
+    var data = opts.data;
+    function render(metric){
+      rowsEl.innerHTML = "";
+      var maxVal = 0;
+      data.forEach(function(d){var m=d[metric];maxVal=Math.max(maxVal,m.a,m.f,m.b);});
+      data.forEach(function(d){
+        var m = d[metric];
+        var aw = Math.round((m.a/maxVal)*100);
+        var fw = Math.round((m.f/maxVal)*100);
+        var bw = Math.round((m.b/maxVal)*100);
+        var vBudP = pct(m.f, m.b);
+        var cls = vBudP>=5?"pos":vBudP<=-5?"neg":"neu";
+        var sign = vBudP>=0?"+":"";
+        var row = document.createElement("div");
+        row.className = "fcrow";
+        row.innerHTML =
+          '<div class="nm">'+d.nm+'</div>'+
+          '<div class="bars">'+
+            '<div class="fcbar"><div class="lab">OTB</div><div class="fctrack"><div class="fcfill actual" style="width:'+aw+'%"></div></div><div class="fcval">'+fmt[metric](m.a)+'</div><div class="fcvar neu">'+fmtVar[metric](m.a-m.f)+' vs FC</div></div>'+
+            '<div class="fcbar"><div class="lab">Forecast</div><div class="fctrack"><div class="fcfill" style="width:'+fw+'%"></div></div><div class="fcval">'+fmt[metric](m.f)+'</div><div class="fcvar '+cls+'">'+sign+vBudP+'% vs bud</div></div>'+
+            '<div class="fcbar"><div class="lab">Budget</div><div class="fctrack"><div class="fcfill budget" style="width:'+bw+'%"></div></div><div class="fcval">'+fmt[metric](m.b)+'</div><div class="fcvar neu">baseline</div></div>'+
+          '</div>';
+        rowsEl.appendChild(row);
+      });
+      var sumA = data.reduce(function(s,d){return s+d[metric].a;},0);
+      var sumF = data.reduce(function(s,d){return s+d[metric].f;},0);
+      var sumB = data.reduce(function(s,d){return s+d[metric].b;},0);
+      if(metric==="occ"||metric==="adr"){
+        sumA = sumA/data.length; sumF=sumF/data.length; sumB=sumB/data.length;
+      }
+      var a=document.getElementById(opts.sumActualId); if(a) a.textContent = fmt[metric](sumA);
+      var f=document.getElementById(opts.sumFcId);     if(f) f.textContent = fmt[metric](sumF);
+      var b=document.getElementById(opts.sumBudId);    if(b) b.textContent = fmt[metric](sumB);
+    }
+    render("rev");
+    chartEl.querySelectorAll(".fcchip").forEach(function(btn){
+      btn.addEventListener("click",function(){
+        chartEl.querySelectorAll(".fcchip").forEach(function(b){b.classList.remove("active");});
+        btn.classList.add("active");
+        requestAnimationFrame(function(){render(btn.dataset.metric);});
+      });
+    });
+  }
+
+  setupChart({chartId:"fcchart",     rowsId:"fcrows",     sumActualId:"fcs-actual",     sumFcId:"fcs-fc",     sumBudId:"fcs-bud",     data:mayData});
+  setupChart({chartId:"fcchart-jun", rowsId:"fcrows-jun", sumActualId:"fcs-actual-jun", sumFcId:"fcs-fc-jun", sumBudId:"fcs-bud-jun", data:junData});
+})();
+
+// STR period toggle (Weekly / R28 / YTD)
+(function(){
+  var strData = {
+    weekly: {
+      label: 'Current Week · <span class="em">May 10 – May 16, 2026</span>',
+      rows: [
+        {nm:"The Nickel Hotel",     occ:66.6, adr:575.12, revpar:382.86, mpi:74.0,  ari:107.0, rgi:79.2,  rank:"6 of 7"},
+        {nm:"The Pinch Charleston", occ:90.3, adr:698.17, revpar:630.35, mpi:122.5, ari:122.9, rgi:150.6, rank:"2 of 5"},
+        {nm:"The Quoin Hotel",      occ:81.5, adr:445.01, revpar:362.90, mpi:98.5,  ari:196.0, rgi:192.9, rank:"1 of 6"},
+        {nm:"ROOST Detroit",        occ:75.2, adr:346.12, revpar:260.22, mpi:89.7,  ari:96.4,  rgi:86.6,  rank:"6 of 7"},
+        {nm:"ROOST Cleveland",      occ:71.4, adr:217.91, revpar:155.65, mpi:89.5,  ari:103.3, rgi:92.5,  rank:"6 of 6"},
+        {nm:"ROOST Baltimore",      occ:86.6, adr:199.74, revpar:172.97, mpi:114.4, ari:89.0,  rgi:101.9, rank:"2 of 6"},
+        {nm:"ROOST Midtown",        occ:77.6, adr:321.55, revpar:249.37, mpi:125.8, ari:111.2, rgi:139.8, rank:"3 of 6"},
+        {nm:"ROOST East Market",    occ:83.9, adr:299.99, revpar:251.77, mpi:105.8, ari:99.3,  rgi:105.1, rank:"3 of 6"},
+        {nm:"ROOST Rainey",         occ:52.5, adr:275.01, revpar:144.50, mpi:66.4,  ari:98.8,  rgi:65.6,  rank:"6 of 6"},
+        {nm:"ROOST Tampa",          occ:87.2, adr:266.93, revpar:232.73, mpi:103.4, ari:147.8, rgi:152.9, rank:"1 of 7"},
+        {nm:"ROOST White House",    occ:73.9, adr:281.36, revpar:208.03, mpi:83.1,  ari:67.1,  rgi:55.7,  rank:"6 of 6"}
+      ]
+    },
+    r28: {
+      label: 'Running 28 Days · <span class="em">April 19 – May 16, 2026</span>',
+      rows: [
+        {nm:"The Nickel Hotel",     occ:70.9, adr:597.07, revpar:423.50, mpi:78.7,  ari:111.8, rgi:87.9,  rank:"5 of 7"},
+        {nm:"The Pinch Charleston", occ:88.4, adr:687.22, revpar:607.70, mpi:116.5, ari:121.0, rgi:141.0, rank:"2 of 5"},
+        {nm:"The Quoin Hotel",      occ:76.3, adr:428.48, revpar:327.10, mpi:108.1, ari:198.8, rgi:214.9, rank:"1 of 6"},
+        {nm:"ROOST Detroit",        occ:75.8, adr:317.14, revpar:240.35, mpi:94.7,  ari:98.3,  rgi:93.1,  rank:"5 of 7"},
+        {nm:"ROOST Cleveland",      occ:66.6, adr:205.53, revpar:136.98, mpi:88.6,  ari:103.8, rgi:92.0,  rank:"5 of 6"},
+        {nm:"ROOST Baltimore",      occ:79.5, adr:187.48, revpar:149.05, mpi:108.9, ari:92.3,  rgi:100.5, rank:"3 of 6"},
+        {nm:"ROOST Midtown",        occ:82.5, adr:259.38, revpar:214.06, mpi:136.3, ari:103.9, rgi:141.6, rank:"3 of 6"},
+        {nm:"ROOST East Market",    occ:89.9, adr:256.78, revpar:230.79, mpi:114.5, ari:97.0,  rgi:111.1, rank:"3 of 6"},
+        {nm:"ROOST Rainey",         occ:56.5, adr:261.88, revpar:147.90, mpi:71.5,  ari:93.0,  rgi:66.5,  rank:"5 of 6"},
+        {nm:"ROOST Tampa",          occ:88.9, adr:303.26, revpar:269.54, mpi:100.0, ari:129.5, rgi:129.4, rank:"1 of 7"},
+        {nm:"ROOST White House",    occ:83.6, adr:274.85, revpar:229.87, mpi:102.3, ari:75.1,  rgi:76.8,  rank:"5 of 6"}
+      ]
+    },
+    ytd: {
+      label: 'Year-to-Date · <span class="em">through April 2026 (Monthly STAR)</span>',
+      rows: [
+        {nm:"The Nickel Hotel",     occ:64.5, adr:470.28, revpar:303.57, mpi:79.9,  ari:105.1, rgi:84.0,  rank:"6 of 7"},
+        {nm:"The Pinch Charleston", occ:84.3, adr:566.31, revpar:477.59, mpi:124.2, ari:113.2, rgi:140.5, rank:"2 of 5"},
+        {nm:"The Quoin Hotel",      occ:57.4, adr:398.30, revpar:228.75, mpi:112.7, ari:200.2, rgi:225.7, rank:"1 of 6"},
+        {nm:"ROOST Detroit",        occ:63.0, adr:248.22, revpar:156.29, mpi:107.0, ari:90.9,  rgi:97.3,  rank:"4 of 7"},
+        {nm:"ROOST Cleveland",      occ:61.7, adr:169.84, revpar:104.80, mpi:107.6, ari:96.3,  rgi:103.6, rank:"2 of 6"},
+        {nm:"ROOST Baltimore",      occ:61.9, adr:186.65, revpar:115.51, mpi:109.7, ari:99.7,  rgi:109.3, rank:"2 of 6"},
+        {nm:"ROOST Midtown",        occ:76.4, adr:201.50, revpar:153.94, mpi:141.2, ari:106.8, rgi:150.8, rank:"2 of 6"},
+        {nm:"ROOST East Market",    occ:87.9, adr:209.29, revpar:184.04, mpi:133.6, ari:106.7, rgi:142.5, rank:"1 of 6"},
+        {nm:"ROOST Rainey",         occ:48.1, adr:228.23, revpar:109.75, mpi:72.8,  ari:81.9,  rgi:59.6,  rank:"6 of 6"},
+        {nm:"ROOST Tampa",          occ:87.2, adr:315.94, revpar:275.52, mpi:99.8,  ari:127.9, rgi:127.7, rank:"1 of 7"},
+        {nm:"ROOST White House",    occ:76.7, adr:254.11, revpar:194.96, mpi:104.9, ari:87.2,  rgi:91.4,  rank:"4 of 6"}
+      ]
+    }
+  };
+  function clsIdx(v){ if(v>=110) return 'pos'; if(v<90) return 'neg'; return 'neu'; }
+  function fmtMoney(v){ return '$'+v.toFixed(2); }
+  function renderStr(period){
+    var d = strData[period];
+    var titleEl = document.getElementById('str-period-title');
+    if(titleEl) titleEl.innerHTML = d.label;
+    var tbody = document.getElementById('str-rows');
+    if(!tbody) return;
+    tbody.innerHTML = '';
+    d.rows.forEach(function(r){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>'+r.nm+'</td>'+
+        '<td>'+r.occ.toFixed(1)+'%</td>'+
+        '<td>'+fmtMoney(r.adr)+'</td>'+
+        '<td>'+fmtMoney(r.revpar)+'</td>'+
+        '<td><span class="'+clsIdx(r.mpi)+'">'+r.mpi.toFixed(1)+'</span></td>'+
+        '<td><span class="'+clsIdx(r.ari)+'">'+r.ari.toFixed(1)+'</span></td>'+
+        '<td><span class="'+clsIdx(r.rgi)+'">'+r.rgi.toFixed(1)+'</span></td>'+
+        '<td>'+r.rank+'</td>';
+      tbody.appendChild(tr);
+    });
+  }
+  renderStr('weekly');
+  document.querySelectorAll('.str-period-toggle .fcchip').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.str-period-toggle .fcchip').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      requestAnimationFrame(function(){ renderStr(btn.dataset.period); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
